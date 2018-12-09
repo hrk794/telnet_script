@@ -4,7 +4,7 @@ import time
 HOST = "lab.sharontools.com"
 
 # A default delay of 2 seconds shall be handy
-wait = time.sleep(2)
+time.sleep(2)
 
 
 #This psswd is needed by the router (Cisco r2) and is changed from time to time.
@@ -16,13 +16,13 @@ sharon_user = "lab"
 
 sharon_password = "123456"
 
-wait
+time.sleep(2)
 
 tn.read_until(b"lab login: ")
 
 tn.write(sharon_user.encode() + b"\n")
 
-wait
+time.sleep(2)
 
 tn.read_until(b"Password: ")
 
@@ -41,14 +41,14 @@ tn.read_until(b"Password: ")
 
 tn.write(r2password.encode() + b"\n")
 
-wait
+time.sleep(2)
 
 # Enter the required command
 tn.read_until(b"#")
 
 tn.write(b"show ip interface brief" + b"\n")
 
-wait
+time.sleep(2)
 
 
 tn.read_until(b"#")
